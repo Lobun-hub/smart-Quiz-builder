@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "domain": "Cloud Concepts",
+    "question": "Which pricing model means you pay only for the resources you actually use?",
+    "options": ["Capital expenditure (CapEx)", "Consumption-based model", "Fixed lease model", "Perpetual licensing"],
+    "answer": 1,
+    "explanation": "The consumption-based model charges for actual usage, with no upfront investment. This is a core cloud benefit."
+  },
+  {
+    "id": 2,
+    "domain": "Cloud Concepts",
+    "question": "Microsoft 365 is an example of which cloud service type?",
+    "options": ["IaaS", "PaaS", "SaaS", "Serverless"],
+    "answer": 2,
+    "explanation": "Software as a Service delivers a complete application over the internet. The provider manages everything underneath."
+  },
+  {
+    "id": 3,
+    "domain": "Cloud Concepts",
+    "question": "In an IaaS deployment, who is responsible for patching the guest operating system?",
+    "options": ["Microsoft", "The customer", "Both equally", "The internet service provider"],
+    "answer": 1,
+    "explanation": "Under the shared responsibility model, IaaS customers manage the OS, applications and data. Microsoft manages the physical hosts, network and datacenter."
+  },
+  {
+    "id": 4,
+    "domain": "Azure Architecture and Services",
+    "question": "What are Availability Zones in Azure?",
+    "options": [
+      "Separate geographic regions paired together",
+      "Physically separate datacenters within a single Azure region",
+      "Virtual networks isolated by subnets",
+      "Billing regions for cost grouping"
+    ],
+    "answer": 1,
+    "explanation": "Availability Zones are unique physical locations inside a region, each with independent power, cooling and networking. They protect against datacenter-level failures."
+  },
+  {
+    "id": 5,
+    "domain": "Azure Architecture and Services",
+    "question": "Which Azure storage service is optimized for storing massive amounts of unstructured data such as images and videos?",
+    "options": ["Azure Table storage", "Azure Queue storage", "Azure Blob storage", "Azure Disk storage"],
+    "answer": 2,
+    "explanation": "Blob storage is designed for unstructured objects such as documents, media files and backups."
+  },
+  {
+    "id": 6,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service provides identity and access management for Azure and Microsoft 365 users?",
+    "options": ["Microsoft Entra ID", "Azure Monitor", "Azure Firewall", "Azure Policy"],
+    "answer": 0,
+    "explanation": "Microsoft Entra ID (formerly Azure Active Directory) is the cloud identity and access management service."
+  },
+  {
+    "id": 7,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service lets Azure resources communicate securely with each other in a private network?",
+    "options": ["Azure Virtual Network", "Azure CDN", "Azure DNS", "Azure Traffic Manager"],
+    "answer": 0,
+    "explanation": "Azure Virtual Network (VNet) is the fundamental building block for private networking in Azure."
+  },
+  {
+    "id": 8,
+    "domain": "Azure Management and Governance",
+    "question": "Which tool helps you estimate the cost of running a workload in Azure BEFORE you deploy it?",
+    "options": ["Azure Advisor", "Pricing calculator", "Azure Monitor", "Service Health"],
+    "answer": 1,
+    "explanation": "The Pricing calculator estimates costs for planned services. Cost Management tracks costs after deployment."
+  },
+  {
+    "id": 9,
+    "domain": "Azure Management and Governance",
+    "question": "Which feature prevents accidental deletion of an Azure resource?",
+    "options": ["Azure Policy", "Resource lock", "Role-based access control", "Management group"],
+    "answer": 1,
+    "explanation": "A resource lock (CanNotDelete or ReadOnly) blocks deletion or modification, even for users who would otherwise have permission."
+  },
+  {
+    "id": 10,
+    "domain": "Azure Management and Governance",
+    "question": "Which service enforces organizational standards, such as only allowing resources in approved regions?",
+    "options": ["Azure Policy", "Azure Blueprints", "Azure Advisor", "Azure Monitor"],
+    "answer": 0,
+    "explanation": "Azure Policy evaluates resources against rules you define and can deny or audit non-compliant deployments."
+  },
+  {
+    "id": 11,
+    "domain": "Azure Management and Governance",
+    "question": "Which service gives personalized recommendations on cost, security, reliability, performance and operational excellence?",
+    "options": ["Azure Advisor", "Microsoft Defender for Cloud", "Azure Resource Manager", "Azure Arc"],
+    "answer": 0,
+    "explanation": "Azure Advisor analyzes your resource configuration and usage, then recommends improvements across five pillars."
+  },
+  {
+    "id": 12,
+    "domain": "Azure Management and Governance",
+    "question": "What is the deployment and management layer used by the Azure portal, CLI and ARM templates?",
+    "options": ["Azure Resource Manager", "Azure Monitor", "Azure Lighthouse", "Azure DevOps"],
+    "answer": 0,
+    "explanation": "Azure Resource Manager (ARM) receives all management requests and applies authentication, authorization and consistent deployment."
+  }
+]
