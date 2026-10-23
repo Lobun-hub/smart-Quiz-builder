@@ -23,7 +23,8 @@ def generate_questions(domain: str, count: int = 5) -> list[dict]:
     import anthropic
 
     prompt = (
-        f'Create {count} AZ-900 questions for "{domain}", each with exactly four options, '
+        f'Create {count} AZ-900 questions for "{domain}", '
+        "each with exactly four options, "
         "one correct answer, and a 1-2 sentence explanation. Return only a JSON array "
         'with "domain" (exact match), "question", "options", "answer" (zero-based), '
         "and \"explanation\" keys."
@@ -44,5 +45,8 @@ def generate_questions(domain: str, count: int = 5) -> list[dict]:
         or len(q["options"]) != 4
         for q in items
     ):
-        raise ValueError(f"The AI response must contain exactly {count} valid questions for {domain}.")
+        raise ValueError(
+            "The AI response must contain exactly "
+            f"{count} valid questions for {domain}."
+        )
     return items

@@ -46,12 +46,14 @@ def save_attempt(correct: int, total: int, stats: dict) -> None:
     percent = correct / total * 100 if total else 0
     with _conn() as c:
         cur = c.execute(
-            "INSERT INTO attempts (taken_at, correct, total, percent) VALUES (?, ?, ?, ?)",
+            "INSERT INTO attempts "
+            "(taken_at, correct, total, percent) VALUES (?, ?, ?, ?)",
             (datetime.now().isoformat(timespec="seconds"), correct, total, percent),
         )
         attempt_id = cur.lastrowid
         c.executemany(
-            "INSERT INTO domain_scores (attempt_id, domain, correct, total) VALUES (?, ?, ?, ?)",
+            "INSERT INTO domain_scores "
+            "(attempt_id, domain, correct, total) VALUES (?, ?, ?, ?)",
             [(attempt_id, d, s["correct"], s["total"]) for d, s in stats.items()],
         )
 
@@ -77,7 +79,9 @@ def get_domain_totals() -> pd.DataFrame:
 
 def get_card_progress() -> dict:
     with _conn() as c:
-        rows = c.execute("SELECT question_id, box, next_review FROM card_progress").fetchall()
+        rows = c.execute(
+            "SELECT question_id, box, next_review FROM card_progress"
+        ).fetchall()
     return {r[0]: {"box": r[1], "next_review": r[2]} for r in rows}
 
 
@@ -87,7 +91,9 @@ def update_card(question_id: int, knew_it: bool) -> None:
     next_review = (date.today() + timedelta(days=BOX_INTERVALS[box])).isoformat()
     with _conn() as c:
         c.execute(
-            "INSERT INTO card_progress (question_id, box, next_review) VALUES (?, ?, ?) "
-            "ON CONFLICT(question_id) DO UPDATE SET box = excluded.box, next_review = excluded.next_review",
+            "INSERT INTO card_progress (question_id, box, next_review) "
+            "VALUES (?, ?, ?) "
+            "ON CONFLICT(question_id) DO UPDATE SET "
+            "box = excluded.box, next_review = excluded.next_review",
             (question_id, box, next_review),
         )

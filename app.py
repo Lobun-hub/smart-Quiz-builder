@@ -11,12 +11,22 @@ from quiz_engine import (
     score_by_domain,
 )
 
-st.set_page_config(page_title="AZ-900 Smart Quiz Builder", page_icon="☁️", layout="centered")
-st.set_page_config(page_title="AZ-900 Smart Quiz Builder", page_icon="☁️", layout="centered")
+st.set_page_config(
+    page_title="AZ-900 Smart Quiz Builder",
+    page_icon="☁️",
+    layout="centered",
+)
 db.init_db()
 
+
 def init_state():
-    defaults = {"quiz": [], "idx": 0, "results": {}, "submitted": False, "finished": False}
+    defaults = {
+        "quiz": [],
+        "idx": 0,
+        "results": {},
+        "submitted": False,
+        "finished": False,
+    }
     for k, v in defaults.items():
         st.session_state.setdefault(k, v)
 
@@ -29,6 +39,7 @@ def reset_quiz(quiz: list[dict]):
     st.session_state.finished = False
     st.session_state.saved = False
 
+
 def sidebar():
     st.sidebar.header("⚙️ Quiz settings")
     domains = st.sidebar.multiselect("Domains", DOMAINS, default=DOMAINS)
@@ -39,7 +50,9 @@ def sidebar():
         modes.append("🤖 AI-generated")
     mode = st.sidebar.radio("Question source", modes)
     if not ai_available():
-        st.sidebar.caption("Set ANTHROPIC_API_KEY in .env to unlock AI-generated questions.")
+        st.sidebar.caption(
+            "Set ANTHROPIC_API_KEY in .env to unlock AI-generated questions."
+        )
 
     if st.sidebar.button("🚀 Start new quiz", use_container_width=True):
         if not domains:
@@ -65,7 +78,10 @@ def show_question():
     i = st.session_state.idx
     q = quiz[i]
 
-    st.progress(i / len(quiz), text=f"Question {i + 1} of {len(quiz)}  ·  {q['domain']}")
+    st.progress(
+        i / len(quiz),
+        text=f"Question {i + 1} of {len(quiz)}  ·  {q['domain']}",
+    )
     st.subheader(q["question"])
 
     choice = st.radio(
@@ -110,14 +126,19 @@ def show_summary():
     st.write(readiness_message(percent))
 
     stats = score_by_domain(quiz, results)
-if not st.session_state.get("saved"):
+    # Streamlit reruns the script after interactions, so save this attempt once.
+    if not st.session_state.get("saved"):
         db.save_attempt(correct, len(quiz), stats)
         st.session_state.saved = True
         st.toast("Score saved to your Readiness Tracker 📊")
     df = pd.DataFrame(
         [
-            {"Domain": d, "Correct": s["correct"], "Total": s["total"],
-             "Accuracy %": round(s["correct"] / s["total"] * 100)}
+            {
+                "Domain": d,
+                "Correct": s["correct"],
+                "Total": s["total"],
+                "Accuracy %": round(s["correct"] / s["total"] * 100),
+            }
             for d, s in stats.items()
         ]
     ).set_index("Domain")

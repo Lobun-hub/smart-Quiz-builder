@@ -77,7 +77,10 @@ def score_by_domain(quiz: list[dict], results: dict[int, int]) -> dict[str, dict
 
 def readiness_message(percent: float) -> str:
     if percent >= 80:
-        return "🟢 Strong. You're approaching exam readiness (the real pass mark is 700/1000). Keep practicing."
+        return (
+            "🟢 Strong. You're approaching exam readiness "
+            "(the real pass mark is 700/1000). Keep practicing."
+        )
     if percent >= 60:
         return "🟡 Getting there. Review the weak domains below, then retake."
     return "🔴 More study needed. Focus on the lowest-scoring domain first."

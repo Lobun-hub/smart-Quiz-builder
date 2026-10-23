@@ -10,7 +10,10 @@ st.set_page_config(page_title="Flashcard Coach", page_icon="🧠", layout="cente
 db.init_db()
 
 st.title("🧠 Flashcard Coach")
-st.caption("Spaced repetition: cards you know come back later, cards you miss come back sooner.")
+st.caption(
+    "Spaced repetition: cards you know come back later, "
+    "cards you miss come back sooner."
+)
 
 questions = load_questions()
 by_id = {q["id"]: q for q in questions}

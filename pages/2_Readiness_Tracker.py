@@ -21,7 +21,10 @@ st.caption("Your saved quiz scores, turned into a readiness estimate.")
 
 attempts = db.get_attempts()
 if attempts.empty:
-    st.info("No attempts yet. Finish a quiz on the main page and your score will appear here.")
+    st.info(
+        "No attempts yet. Finish a quiz on the main page "
+        "and your score will appear here."
+    )
     st.stop()
 
 domain_df = db.get_domain_totals().set_index("domain")
@@ -32,7 +35,9 @@ recent = attempts.tail(3)["percent"].mean()
 # Weighted score across the domains you have practiced
 covered = [d for d in DOMAINS if d in domain_df.index]
 weight_sum = sum(WEIGHTS[d] for d in covered)
-weighted = sum(WEIGHTS[d] * domain_df.loc[d, "accuracy"] for d in covered) / weight_sum
+weighted = (
+    sum(WEIGHTS[d] * domain_df.loc[d, "accuracy"] for d in covered) / weight_sum
+)
 
 estimate = round(0.5 * recent + 0.5 * weighted, 1)
 
@@ -44,11 +49,17 @@ c3.metric("Attempts", len(attempts))
 if len(attempts) < 3:
     st.warning("Take at least 3 quizzes for a more reliable estimate.")
 if estimate >= 80:
-    st.success("🟢 Looking ready. Do a final review of any weak domain and book the exam.")
+    st.success(
+        "🟢 Looking ready. Do a final review of any weak domain "
+        "and book the exam."
+    )
 elif estimate >= 65:
     st.warning("🟡 Almost there. Target your weakest domain, then retest.")
 else:
-    st.error("🔴 Not ready yet. Study the weakest domain below and use the Flashcard Coach daily.")
+    st.error(
+        "🔴 Not ready yet. Study the weakest domain below "
+        "and use the Flashcard Coach daily."
+    )
 
 st.subheader("📈 Score history")
 st.line_chart(attempts.set_index("taken_at")["percent"])
@@ -56,7 +67,10 @@ st.line_chart(attempts.set_index("taken_at")["percent"])
 st.subheader("🎯 Accuracy by domain")
 st.bar_chart(domain_df["accuracy"])
 weakest = domain_df["accuracy"].idxmin()
-st.write(f"Weakest domain so far: **{weakest}** ({domain_df.loc[weakest, 'accuracy']}%).")
+st.write(
+    f"Weakest domain so far: **{weakest}** "
+    f"({domain_df.loc[weakest, 'accuracy']}%)."
+)
 
 st.subheader("📅 Exam countdown")
 exam_date = st.date_input("When is your exam?", value=None, min_value=date.today())
@@ -65,7 +79,8 @@ if exam_date:
     st.metric("Days left", days_left)
     if estimate < 80 and days_left > 0:
         st.write(
-            f"To close the gap, aim for roughly one quiz per day plus a daily flashcard "
+            "To close the gap, aim for roughly one quiz per day "
+            "plus a daily flashcard "
             f"round, focusing on **{weakest}** first."
         )
 
