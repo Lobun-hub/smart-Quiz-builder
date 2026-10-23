@@ -11,12 +11,14 @@ from quiz_engine import (
     readiness_message,
     score_by_domain,
 )
+from theme_manager import apply_theme
 
 st.set_page_config(
     page_title="AZ-900 Smart Quiz Builder",
     page_icon="☁️",
     layout="centered",
 )
+apply_theme()
 db.init_db()
 
 

@@ -10,6 +10,11 @@ built for the Vibe Coding Hackathon: AZ-900 Exam Prep Edition.
 - 📊 **Readiness Tracker**: saved scores, weighted readiness estimate, exam countdown
 - 🤖 **AI Study Buddy**: plain-English explanations of Azure concepts
 - 📅 **Study Planner**: day-by-day plan weighted toward your weak domains
+- 🎨 **Color themes**: choose Ocean, Forest or Desert, with light and dark modes
+
+Choose the color theme and toggle dark mode from the **Appearance** section in
+the sidebar. Your selection is shared across the app pages for the current
+session.
 
 ## Run locally
 ```bash

@@ -5,8 +5,10 @@ import streamlit as st
 import db
 from planner import build_plan
 from quiz_engine import DOMAINS
+from theme_manager import apply_theme
 
 st.set_page_config(page_title="Study Planner", page_icon="📅", layout="centered")
+apply_theme()
 db.init_db()
 
 st.title("📅 Personal Study Planner")

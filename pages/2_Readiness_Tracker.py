@@ -1,11 +1,13 @@
 from datetime import date
 
 import streamlit as st
-
 import db
 from quiz_engine import DOMAINS
+from quiz_engine import DOMAINS
+from theme_manager import apply_theme
 
 st.set_page_config(page_title="Readiness Tracker", page_icon="📊", layout="centered")
+apply_theme()
 db.init_db()
 
 # Approximate AZ-900 skills-measured weights (midpoints of Microsoft's ranges).

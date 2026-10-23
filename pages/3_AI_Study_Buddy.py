@@ -1,8 +1,10 @@
 import streamlit as st
 
 from study_buddy import ask_buddy, buddy_available
+from theme_manager import apply_theme
 
 st.set_page_config(page_title="AI Study Buddy", page_icon="🤖", layout="centered")
+apply_theme()
 
 st.title("🤖 AI Study Buddy")
 st.caption("Ask about any AZ-900 concept and get a simple explanation.")

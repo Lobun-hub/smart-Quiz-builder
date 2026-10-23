@@ -5,8 +5,10 @@ import streamlit as st
 
 import db
 from quiz_engine import DOMAINS, load_questions
+from theme_manager import apply_theme
 
 st.set_page_config(page_title="Flashcard Coach", page_icon="🧠", layout="centered")
+apply_theme()
 db.init_db()
 
 st.title("🧠 Flashcard Coach")
