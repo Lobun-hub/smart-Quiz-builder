@@ -22,8 +22,14 @@ def ai_available() -> bool:
 
 def get_client():
     """Build a client that always authenticates with the API key from .env."""
+    api_key = get_api_key()
+    if api_key is None:
+        raise ValueError(
+            "ANTHROPIC_API_KEY is not set. Add your key to the project-root .env file."
+        )
+
     import anthropic
 
     # A leftover bearer token in your environment overrides the API key and causes 401.
     os.environ.pop("ANTHROPIC_AUTH_TOKEN", None)
-    return anthropic.Anthropic(api_key=get_api_key(), base_url=API_URL)
+    return anthropic.Anthropic(api_key=api_key, base_url=API_URL)

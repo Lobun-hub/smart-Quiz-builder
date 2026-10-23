@@ -195,7 +195,7 @@
     "options": ["Tag", "Lock", "Policy", "Role"],
     "answer": 0,
     "explanation": "Tags are metadata on resources, commonly used to group costs by department, project or environment."
-  }
+  },
   {
     "id": 25,
     "domain": "Cloud Concepts",
