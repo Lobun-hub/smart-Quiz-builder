@@ -196,4 +196,164 @@
     "answer": 0,
     "explanation": "Tags are metadata on resources, commonly used to group costs by department, project or environment."
   }
+  {
+    "id": 25,
+    "domain": "Cloud Concepts",
+    "question": "What does high availability aim to deliver?",
+    "options": ["The lowest possible cost", "Minimal downtime and continuous service", "Unlimited storage", "Faster developer onboarding"],
+    "answer": 1,
+    "explanation": "High availability keeps services running with minimal interruption, usually through redundancy and failover."
+  },
+  {
+    "id": 26,
+    "domain": "Cloud Concepts",
+    "question": "Which responsibility always stays with the customer in IaaS, PaaS and SaaS?",
+    "options": ["Physical network cables", "Hypervisor patching", "Information and data", "Datacenter power"],
+    "answer": 2,
+    "explanation": "In every service type, customers remain responsible for their data, their accounts and who can access them."
+  },
+  {
+    "id": 27,
+    "domain": "Cloud Concepts",
+    "question": "Which cloud model is owned by a provider and shared by many organizations?",
+    "options": ["Public cloud", "Private cloud", "Hybrid cloud", "Edge cloud"],
+    "answer": 0,
+    "explanation": "A public cloud such as Azure is owned and operated by the provider, with resources shared across customers."
+  },
+  {
+    "id": 28,
+    "domain": "Cloud Concepts",
+    "question": "Which service type gives developers a managed platform to deploy apps without managing the operating system?",
+    "options": ["IaaS", "SaaS", "Colocation", "PaaS"],
+    "answer": 3,
+    "explanation": "PaaS manages the OS and runtime so developers focus on code. Azure App Service is a typical example."
+  },
+  {
+    "id": 29,
+    "domain": "Cloud Concepts",
+    "question": "Which cloud benefit means a system can recover from failures and keep working?",
+    "options": ["Predictability", "Reliability", "Manageability", "Agility"],
+    "answer": 1,
+    "explanation": "Reliability is the ability to recover from failures and continue to function, often through redundancy across zones or regions."
+  },
+  {
+    "id": 30,
+    "domain": "Cloud Concepts",
+    "question": "Which concept explains why large cloud providers can offer lower prices per unit?",
+    "options": ["Chargeback", "Cost allocation", "Economies of scale", "Reserved capacity"],
+    "answer": 2,
+    "explanation": "Providers buy hardware and run datacenters at massive scale, which lowers their unit costs and the prices they pass on."
+  },
+  {
+    "id": 31,
+    "domain": "Azure Architecture and Services",
+    "question": "Which Azure resource is a logical container that holds related resources for a solution?",
+    "options": ["Subscription", "Resource group", "Management group", "Region"],
+    "answer": 1,
+    "explanation": "A resource group holds related resources that share a lifecycle, so you can deploy, manage and delete them together."
+  },
+  {
+    "id": 32,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service is a fully managed relational database built on the SQL Server engine?",
+    "options": ["Azure SQL Database", "Azure Cosmos DB", "Azure Table storage", "Azure Cache for Redis"],
+    "answer": 0,
+    "explanation": "Azure SQL Database is a managed PaaS relational database, so Microsoft handles patching and backups."
+  },
+  {
+    "id": 33,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service is a globally distributed, multi-model NoSQL database?",
+    "options": ["Azure Synapse Analytics", "Azure SQL Database", "Azure Files", "Azure Cosmos DB"],
+    "answer": 3,
+    "explanation": "Azure Cosmos DB offers low-latency, globally distributed NoSQL storage with multiple APIs."
+  },
+  {
+    "id": 34,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service distributes incoming network traffic across VMs within a region?",
+    "options": ["Azure DNS", "Azure CDN", "Azure Load Balancer", "Azure VPN Gateway"],
+    "answer": 2,
+    "explanation": "Azure Load Balancer spreads traffic across healthy backend instances to improve availability and performance."
+  },
+  {
+    "id": 35,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service runs containers without you managing virtual machines or an orchestrator?",
+    "options": ["Azure Container Instances", "Azure Batch", "Azure Virtual Desktop", "Azure Lab Services"],
+    "answer": 0,
+    "explanation": "Azure Container Instances starts containers in seconds with no VM management, which suits simple or short-lived workloads."
+  },
+  {
+    "id": 36,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service gives secure RDP/SSH access to VMs from the portal without exposing public IP addresses?",
+    "options": ["Azure Firewall", "Azure Bastion", "Azure Front Door", "Azure Private Link"],
+    "answer": 1,
+    "explanation": "Azure Bastion provides browser-based connectivity to VMs over TLS, so the VMs need no public IP."
+  },
+  {
+    "id": 37,
+    "domain": "Azure Architecture and Services",
+    "question": "Which storage redundancy option protects against a region-wide outage by copying data to a paired region?",
+    "options": ["LRS", "ZRS", "GRS", "Premium SSD"],
+    "answer": 2,
+    "explanation": "Geo-redundant storage (GRS) keeps copies in the primary region and replicates them to a secondary region."
+  },
+  {
+    "id": 38,
+    "domain": "Azure Management and Governance",
+    "question": "Which tool reports Azure outages and planned maintenance that affect your resources?",
+    "options": ["Azure Service Health", "Azure Advisor", "Azure Policy", "Azure Blueprints"],
+    "answer": 0,
+    "explanation": "Azure Service Health gives personalized alerts about incidents, planned maintenance and health advisories."
+  },
+  {
+    "id": 39,
+    "domain": "Azure Management and Governance",
+    "question": "Which service provides security posture management and threat protection across Azure and hybrid workloads?",
+    "options": ["Azure Monitor", "Azure Lighthouse", "Azure Migrate", "Microsoft Defender for Cloud"],
+    "answer": 3,
+    "explanation": "Microsoft Defender for Cloud assesses security posture, recommends fixes and detects threats."
+  },
+  {
+    "id": 40,
+    "domain": "Azure Management and Governance",
+    "question": "Which tool tracks costs you have already incurred and lets you set budgets and alerts?",
+    "options": ["Pricing calculator", "Azure Cost Management", "TCO calculator", "Azure Advisor"],
+    "answer": 1,
+    "explanation": "Cost Management analyzes actual spending and supports budgets. The calculators only estimate costs in advance."
+  },
+  {
+    "id": 41,
+    "domain": "Azure Management and Governance",
+    "question": "Which tool compares the cost of running workloads on-premises with running them in Azure?",
+    "options": ["Pricing calculator", "Cost Management", "Total Cost of Ownership (TCO) calculator", "Azure Advisor"],
+    "answer": 2,
+    "explanation": "The TCO calculator estimates savings from moving on-premises workloads to Azure."
+  },
+  {
+    "id": 42,
+    "domain": "Azure Management and Governance",
+    "question": "Which approach deploys the same resources repeatedly from a declarative definition?",
+    "options": ["Azure Advisor", "ARM templates and Bicep", "Resource locks", "Tags"],
+    "answer": 1,
+    "explanation": "ARM templates and Bicep describe infrastructure as code, so each deployment produces a consistent result."
+  },
+  {
+    "id": 43,
+    "domain": "Azure Management and Governance",
+    "question": "Which browser-based command-line experience is built into the Azure portal?",
+    "options": ["Azure Cloud Shell", "Azure Arc", "Azure Storage Explorer", "Azure Lighthouse"],
+    "answer": 0,
+    "explanation": "Azure Cloud Shell offers Bash and PowerShell in the browser with Azure tools preinstalled."
+  },
+  {
+    "id": 44,
+    "domain": "Azure Management and Governance",
+    "question": "Which Microsoft resource offers free, self-paced learning paths for Azure certifications?",
+    "options": ["Azure Marketplace", "Service Trust Portal", "Azure Advisor", "Microsoft Learn"],
+    "answer": 3,
+    "explanation": "Microsoft Learn provides free learning paths, modules and the official AZ-900 study guide."
+  }
 ]
