@@ -8,7 +8,8 @@ built for the Vibe Coding Hackathon: AZ-900 Exam Prep Edition.
 - ⏱️ Exam timer and flag-for-review
 - 🧠 **Flashcard Coach**: Leitner-box spaced repetition
 - 📊 **Readiness Tracker**: saved scores, weighted readiness estimate, exam countdown
-- 🤖 **AI Study Buddy**: plain-English explanations of Azure concepts
+- 🤖 **Study Buddy**: built-in explanations work offline; an Anthropic API key
+  enables generated answers
 - 📅 **Study Planner**: day-by-day plan weighted toward your weak domains
 - 🎨 **Color themes**: choose Ocean, Forest or Desert, with light and dark modes
 

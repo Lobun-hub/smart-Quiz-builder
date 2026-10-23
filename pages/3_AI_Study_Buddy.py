@@ -7,11 +7,13 @@ st.set_page_config(page_title="AI Study Buddy", page_icon="🤖", layout="center
 apply_theme()
 
 st.title("🤖 AI Study Buddy")
-st.caption("Ask about any AZ-900 concept and get a simple explanation.")
+st.caption("Ask about AZ-900 concepts and get a simple explanation.")
 
 if not buddy_available():
-    st.warning("Add ANTHROPIC_API_KEY to your .env file, restart the app, and this page will come alive.")
-    st.stop()
+    st.info(
+        "Offline study helper: built-in AZ-900 explanations are available "
+        "without an API key. Add an Anthropic key to enable generated answers."
+    )
 
 if "chat" not in st.session_state:
     st.session_state.chat = []
