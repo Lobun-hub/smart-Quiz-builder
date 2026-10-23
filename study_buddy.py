@@ -1,8 +1,6 @@
 import os
 
-from dotenv import load_dotenv
-
-load_dotenv()
+from ai_client import ai_available, get_client
 
 SYSTEM_PROMPT = """You are an AZ-900 (Microsoft Azure Fundamentals) study buddy.
 Explain cloud concepts in simple, friendly language for beginners.
@@ -17,14 +15,12 @@ Rules:
 
 
 def buddy_available() -> bool:
-    return bool(os.getenv("ANTHROPIC_API_KEY"))
+    return ai_available()
 
 
 def ask_buddy(history: list[dict]) -> str:
     """history is a list of {"role": "user"|"assistant", "content": str}."""
-    import anthropic
-
-    client = anthropic.Anthropic()
+    client = get_client()
     model = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-5-5")
     response = client.messages.create(
         model=model,
