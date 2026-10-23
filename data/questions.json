@@ -100,4 +100,100 @@
     "answer": 0,
     "explanation": "Azure Resource Manager (ARM) receives all management requests and applies authentication, authorization and consistent deployment."
   }
+  {
+    "id": 13,
+    "domain": "Cloud Concepts",
+    "question": "Which cloud benefit lets you automatically add or remove resources as demand changes?",
+    "options": ["Elasticity", "Geo-distribution", "Predictability", "Governance"],
+    "answer": 0,
+    "explanation": "Elasticity means resources scale out and in automatically with demand, so you avoid over-provisioning."
+  },
+  {
+    "id": 14,
+    "domain": "Cloud Concepts",
+    "question": "Which cloud model combines on-premises infrastructure with public cloud services?",
+    "options": ["Public cloud", "Private cloud", "Hybrid cloud", "Community cloud"],
+    "answer": 2,
+    "explanation": "Hybrid cloud connects on-premises or private resources with a public cloud so workloads can span both."
+  },
+  {
+    "id": 15,
+    "domain": "Cloud Concepts",
+    "question": "Which expense type describes spending on operational costs that you pay as you go?",
+    "options": ["CapEx", "OpEx", "Depreciation", "Amortization"],
+    "answer": 1,
+    "explanation": "Operational expenditure (OpEx) is pay-as-you-go spending. Capital expenditure is upfront spending on physical assets."
+  },
+  {
+    "id": 16,
+    "domain": "Azure Architecture and Services",
+    "question": "Which Azure service runs small pieces of code in response to events without managing servers?",
+    "options": ["Azure Virtual Machines", "Azure Functions", "Azure Batch", "Azure Backup"],
+    "answer": 1,
+    "explanation": "Azure Functions is a serverless compute service that runs event-triggered code, and you pay only while it runs."
+  },
+  {
+    "id": 17,
+    "domain": "Azure Architecture and Services",
+    "question": "Which service provides a private, dedicated connection between on-premises networks and Azure that does not use the public internet?",
+    "options": ["VPN Gateway", "ExpressRoute", "Azure Bastion", "Azure Front Door"],
+    "answer": 1,
+    "explanation": "ExpressRoute uses a private connectivity provider. A VPN Gateway sends encrypted traffic over the public internet."
+  },
+  {
+    "id": 18,
+    "domain": "Azure Architecture and Services",
+    "question": "Which authentication method requires a user to provide two or more verification factors?",
+    "options": ["Single sign-on", "Multifactor authentication", "Passwordless only", "Federation"],
+    "answer": 1,
+    "explanation": "Multifactor authentication (MFA) combines something you know, have or are, which greatly reduces account compromise risk."
+  },
+  {
+    "id": 19,
+    "domain": "Azure Architecture and Services",
+    "question": "Which Azure storage redundancy option copies data synchronously across three Availability Zones in one region?",
+    "options": ["LRS", "ZRS", "GRS", "RA-GRS"],
+    "answer": 1,
+    "explanation": "Zone-redundant storage (ZRS) replicates data across three zones in the primary region. LRS keeps three copies in a single datacenter."
+  },
+  {
+    "id": 20,
+    "domain": "Azure Management and Governance",
+    "question": "Which feature lets you apply the same access permissions to multiple subscriptions at once?",
+    "options": ["Resource groups", "Management groups", "Tags", "Resource locks"],
+    "answer": 1,
+    "explanation": "Management groups sit above subscriptions, so policies and role assignments applied to them are inherited by everything below."
+  },
+  {
+    "id": 21,
+    "domain": "Azure Management and Governance",
+    "question": "Which feature assigns permissions to users based on their job role?",
+    "options": ["Azure Policy", "Role-based access control (RBAC)", "Resource locks", "Azure Blueprints"],
+    "answer": 1,
+    "explanation": "Azure RBAC grants access by assigning roles at a scope. Azure Policy, in contrast, controls what resources can be deployed."
+  },
+  {
+    "id": 22,
+    "domain": "Azure Management and Governance",
+    "question": "Which tool collects, analyzes and acts on telemetry such as metrics and logs from Azure resources?",
+    "options": ["Azure Monitor", "Azure Advisor", "Azure Policy", "Azure Cost Management"],
+    "answer": 0,
+    "explanation": "Azure Monitor gathers metrics and logs, supports alerts and powers insights into resource health and performance."
+  },
+  {
+    "id": 23,
+    "domain": "Azure Management and Governance",
+    "question": "Which tool lets you manage servers running outside Azure using Azure management tools?",
+    "options": ["Azure Arc", "Azure Lighthouse", "Azure Migrate", "Azure Stack Edge"],
+    "answer": 0,
+    "explanation": "Azure Arc extends Azure management and governance to on-premises, multi-cloud and edge resources."
+  },
+  {
+    "id": 24,
+    "domain": "Azure Management and Governance",
+    "question": "Which label is a name-value pair used to organize resources for billing and reporting?",
+    "options": ["Tag", "Lock", "Policy", "Role"],
+    "answer": 0,
+    "explanation": "Tags are metadata on resources, commonly used to group costs by department, project or environment."
+  }
 ]

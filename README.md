@@ -1,24 +1,34 @@
-# Smart Quiz Builder
+# ☁️ AZ-900 Smart Quiz Builder
 
-## Run on Windows
+An AI-powered study suite for the Microsoft Azure Fundamentals (AZ-900) exam,
+built for the Vibe Coding Hackathon: AZ-900 Exam Prep Edition.
 
-From the project folder in PowerShell:
+## Features
+- 📝 **Smart Quiz Builder**: instant feedback and explanations, optional AI-generated questions
+- ⏱️ Exam timer and flag-for-review
+- 🧠 **Flashcard Coach**: Leitner-box spaced repetition
+- 📊 **Readiness Tracker**: saved scores, weighted readiness estimate, exam countdown
+- 🤖 **AI Study Buddy**: plain-English explanations of Azure concepts
+- 📅 **Study Planner**: day-by-day plan weighted toward your weak domains
 
-```powershell
+## Run locally
+```bash
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-Copy-Item .env.example .env
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env     # optional: add ANTHROPIC_API_KEY
 streamlit run app.py
 ```
 
-The `.env` file is optional for the question bank. Add your `ANTHROPIC_API_KEY`
-to enable AI-generated questions.
+## Tech stack
+Python, Streamlit, SQLite, pandas, Anthropic API.
 
-If PowerShell blocks virtual-environment activation, use the environment's
-Python directly instead:
+## Demo script (2 minutes)
+1. Take an 8-question quiz and show the instant explanations.
+2. Open the Readiness Tracker and show the saved score.
+3. Open the Study Planner, enter an exam date, generate and download the plan.
+4. Ask the AI Study Buddy to explain "Availability Zones".
+5. Review cards in the Flashcard Coach.
 
-```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m streamlit run app.py
-```
+## Disclaimer
+Practice material only. Always confirm exam objectives on Microsoft Learn.
