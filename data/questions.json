@@ -99,7 +99,7 @@
     "options": ["Azure Resource Manager", "Azure Monitor", "Azure Lighthouse", "Azure DevOps"],
     "answer": 0,
     "explanation": "Azure Resource Manager (ARM) receives all management requests and applies authentication, authorization and consistent deployment."
-  }
+  },
   {
     "id": 13,
     "domain": "Cloud Concepts",
