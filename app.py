@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import db
 
 from ai_generator import ai_available, generate_questions
 from quiz_engine import (
@@ -11,7 +12,8 @@ from quiz_engine import (
 )
 
 st.set_page_config(page_title="AZ-900 Smart Quiz Builder", page_icon="☁️", layout="centered")
-
+st.set_page_config(page_title="AZ-900 Smart Quiz Builder", page_icon="☁️", layout="centered")
+db.init_db()
 
 def init_state():
     defaults = {"quiz": [], "idx": 0, "results": {}, "submitted": False, "finished": False}
@@ -25,7 +27,7 @@ def reset_quiz(quiz: list[dict]):
     st.session_state.results = {}
     st.session_state.submitted = False
     st.session_state.finished = False
-
+    st.session_state.saved = False
 
 def sidebar():
     st.sidebar.header("⚙️ Quiz settings")
@@ -108,6 +110,10 @@ def show_summary():
     st.write(readiness_message(percent))
 
     stats = score_by_domain(quiz, results)
+if not st.session_state.get("saved"):
+        db.save_attempt(correct, len(quiz), stats)
+        st.session_state.saved = True
+        st.toast("Score saved to your Readiness Tracker 📊")
     df = pd.DataFrame(
         [
             {"Domain": d, "Correct": s["correct"], "Total": s["total"],
