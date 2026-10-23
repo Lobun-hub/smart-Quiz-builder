@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import db
+import time
 
 from ai_generator import ai_available, generate_questions
 from quiz_engine import (
@@ -26,6 +27,8 @@ def init_state():
         "results": {},
         "submitted": False,
         "finished": False,
+        "flagged": set(),
+        "started_at": None,
     }
     for k, v in defaults.items():
         st.session_state.setdefault(k, v)
@@ -38,6 +41,8 @@ def reset_quiz(quiz: list[dict]):
     st.session_state.submitted = False
     st.session_state.finished = False
     st.session_state.saved = False
+    st.session_state.flagged = set()
+    st.session_state.started_at = time.time()
 
 
 def sidebar():
@@ -82,6 +87,14 @@ def show_question():
         i / len(quiz),
         text=f"Question {i + 1} of {len(quiz)}  ·  {q['domain']}",
     )
+    elapsed = int(time.time() - (st.session_state.started_at or time.time()))
+    st.caption(f"⏱️ Elapsed: {elapsed // 60:02d}:{elapsed % 60:02d}")
+
+    flagged = i in st.session_state.flagged
+    if st.toggle("🚩 Flag for review", value=flagged, key=f"flag_{i}"):
+        st.session_state.flagged.add(i)
+    else:
+        st.session_state.flagged.discard(i)
     st.subheader(q["question"])
 
     choice = st.radio(
@@ -124,6 +137,13 @@ def show_summary():
     st.header("📊 Your results")
     st.metric("Score", f"{correct}/{len(quiz)}", f"{percent:.0f}%")
     st.write(readiness_message(percent))
+    total_secs = int(time.time() - (st.session_state.started_at or time.time()))
+    st.caption(f"⏱️ Total time: {total_secs // 60}m {total_secs % 60}s")
+
+    if st.session_state.flagged:
+        st.info("🚩 You flagged these questions:")
+        for i in sorted(st.session_state.flagged):
+            st.write(f"- {quiz[i]['question']}")
 
     stats = score_by_domain(quiz, results)
     # Streamlit reruns the script after interactions, so save this attempt once.
